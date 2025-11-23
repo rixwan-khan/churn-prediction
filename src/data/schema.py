@@ -6,7 +6,8 @@ import warnings
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-RAW_DATA_PATH = os.path.join("data", "raw", "telco-customer-churn-raw.csv")
+# Import centralized path from paths.py
+from ..utils.paths import RAW_DATA_PATH
 
 ChurnSchema = pa.DataFrameSchema(
     columns={
