@@ -18,16 +18,16 @@ from scipy.stats import zscore
 from sklearn.ensemble import IsolationForest
 from sklearn.preprocessing import StandardScaler
 
-from config import RAW_DATA_PATH, CLEAN_DATA_PATH  # project-specific paths
+from config import PROCESSED_DATA_PATH, CLEAN_DATA_PATH  # project-specific paths
 
 
 # -------------------------------------------------------------------
 # 1. LOAD DATA
 # -------------------------------------------------------------------
-def load_data(filepath=RAW_DATA_PATH):
+def load_data(filepath=PROCESSED_DATA_PATH):
     """
     Load dataset from CSV or Excel.
-    Default path = RAW_DATA_PATH
+    Default path = PROCESSED_DATA_PATH
     Returns pandas DataFrame.
     """
     if filepath.suffix == '.csv':
@@ -116,22 +116,41 @@ def flag_outliers(df, numeric_cols, z_thresh=3, iqr_factor=1.5, iso_contaminatio
 
     # Z-score
     for col in numeric_cols:
+        # Compute the z-score for each value in the column.
+        # Missing values are replaced with the column median to avoid errors.
         df[f"{col}_zscore"] = zscore(df[col].fillna(df[col].median()))
+
+        # Mark values as outliers if the absolute z-score is greater than the threshold.
+        # Convert True/False into 1/0 for easier interpretation.
         df[f"{col}_outlier_z"] = (df[f"{col}_zscore"].abs() > z_thresh).astype(int)
 
     # IQR
     for col in numeric_cols:
+        #25th percentile (Q1) and 75th percentile (Q3)
         Q1 = df[col].quantile(0.25)
         Q3 = df[col].quantile(0.75)
         IQR = Q3 - Q1
+
+        # Define lower and upper bounds for acceptable values
+        # Values outside these bounds are considered outliers
         lower = Q1 - iqr_factor * IQR
         upper = Q3 + iqr_factor * IQR
+
+        # New column where outliers are flagged as 1, normal values as 0
         df[f"{col}_outlier_iqr"] = ((df[col] < lower) | (df[col] > upper)).astype(int)
 
     # Isolation Forest
     iso = IsolationForest(contamination=iso_contamination, random_state=42)
+
+    # Prepare the numeric data by filling missing values with each column's median.
     df_numeric = df[numeric_cols].fillna(df[numeric_cols].median())
+
+    # The model outputs:
+    #     1  = normal point, -1  = outlier
     df["outlier_iso"] = iso.fit_predict(df_numeric)
+
+    # Convert IsolationForest output into 0 and 1 for consistency:
+    #     0 = normal,  1 = outlier
     df["outlier_iso"] = df["outlier_iso"].map({1: 0, -1: 1})
 
     print("Outlier flagging completed")
@@ -143,6 +162,9 @@ def flag_outliers(df, numeric_cols, z_thresh=3, iqr_factor=1.5, iso_contaminatio
 # -------------------------------------------------------------------
 def scale_features(df, numeric_cols):
     scaler = StandardScaler()
+
+    # Fit the scaler on the numeric columns (calculate mean and std),
+    # then transform those columns and replace them with the scaled values.
     df[numeric_cols] = scaler.fit_transform(df[numeric_cols])
     print("Feature scaling completed")
     return df
@@ -163,7 +185,7 @@ def save_processed(df, filepath=CLEAN_DATA_PATH):
 # -------------------------------------------------------------------
 # 8. MASTER PIPELINE
 # -------------------------------------------------------------------
-def preprocess_pipeline(input_path=RAW_DATA_PATH, output_path=CLEAN_DATA_PATH,
+def preprocess_pipeline(input_path=PROCESSED_DATA_PATH, output_path=CLEAN_DATA_PATH,
                         numeric_cols=None, categorical_cols=None, datetime_cols=None, scale=False):
     """
     Full preprocessing pipeline:
