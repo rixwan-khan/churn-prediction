@@ -3,7 +3,7 @@ import os
 import warnings
 import pandas as pd
 from pandera.errors import SchemaErrors
-from src.data.schema import ChurnSchema, RAW_DATA_PATH
+from schema import ChurnSchema, RAW_DATA_PATH
 from src.utils.io import load_csv, save_csv
 
 warnings.simplefilter(action="ignore", category=FutureWarning)
@@ -49,6 +49,6 @@ if __name__ == "__main__":
     df = load_csv(RAW_DATA_PATH)
 
     validated_path = os.path.join("data", "processed", "validated_df.csv")
-    failed_path = os.path.join("data", "logs", "failed_rows.csv")
+    failed_path = os.path.join("data", "db_validation_log", "failed_rows.csv")
 
     validate_data(df, ChurnSchema, validated_path, failed_path)

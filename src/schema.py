@@ -7,7 +7,7 @@ import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 # Import centralized path from paths.py
-from ..utils.paths import RAW_DATA_PATH
+from .utils.paths import RAW_DATA_PATH
 
 ChurnSchema = pa.DataFrameSchema(
     columns={

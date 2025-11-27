@@ -18,7 +18,7 @@ from scipy.stats import zscore
 from sklearn.ensemble import IsolationForest
 from sklearn.preprocessing import StandardScaler
 
-from config import PROCESSED_DATA_PATH, CLEAN_DATA_PATH  # project-specific paths
+from src.config import PROCESSED_DATA_PATH, CLEAN_DATA_PATH  # project-specific paths
 
 
 # -------------------------------------------------------------------
