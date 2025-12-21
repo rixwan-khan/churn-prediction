@@ -1,0 +1,12 @@
+2025-12-13 04:34:08 - training:model_training.log - INFO - Loaded dataset with shape: (7043, 32)
+2025-12-13 04:34:08 - training:model_training.log - INFO - Train:(4930, 31), Validation:(1056, 31), Test: (1057, 31)
+2025-12-13 04:34:09 - training:model_training.log - INFO - Saved model:C:\Users\Rix\Projects\churn-prediction\models\logistic_regression.pkl
+2025-12-13 04:34:09 - training:model_training.log - INFO - Saved metrics:C:\Users\Rix\Projects\churn-prediction\reports\logistic_regression_metrics.json
+2025-12-13 04:34:14 - training:model_training.log - INFO - Saved model:C:\Users\Rix\Projects\churn-prediction\models\rf_smote.pkl
+2025-12-13 04:34:14 - training:model_training.log - INFO - Saved metrics:C:\Users\Rix\Projects\churn-prediction\reports\rf_smote_metrics.json
+2025-12-13 04:34:14 - training:model_training.log - INFO - Saved model:C:\Users\Rix\Projects\churn-prediction\models\xgboost.pkl
+2025-12-13 04:34:14 - training:model_training.log - INFO - Saved metrics:C:\Users\Rix\Projects\churn-prediction\reports\xgboost_metrics.json
+2025-12-13 04:34:14 - training:model_training.log - INFO - Training completed. Models Evaluated on test set
+2025-12-13 04:34:14 - training:model_training.log - INFO - LogisticRegression: {'ROC_AUC': 0.8452782771398173, 'PR_AUC': 0.6603639821533818, 'F1': 0.6342943854324734, 'ConfusionMatrix': [[607, 169], [72, 209]], 'Threshold': np.float64(0.5521616114383809)}
+2025-12-13 04:34:14 - training:model_training.log - INFO - RandomForest: {'ROC_AUC': 0.8182095425028434, 'PR_AUC': 0.6109497385915386, 'F1': 0.60062893081761, 'ConfusionMatrix': [[612, 164], [90, 191]], 'Threshold': np.float64(0.38666666666666666)}
+2025-12-13 04:34:14 - training:model_training.log - INFO - XGBoost: {'ROC_AUC': 0.82092444142789, 'PR_AUC': 0.6349068195786176, 'F1': 0.5994397759103641, 'ConfusionMatrix': [[557, 219], [67, 214]], 'Threshold': np.float32(0.38030803)}

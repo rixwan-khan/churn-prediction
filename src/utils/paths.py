@@ -14,14 +14,26 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 DATA_DIR = PROJECT_ROOT / "data"
 
-RAW_DATA_DIR = DATA_DIR / "raw"
-PROCESSED_DATA_DIR = DATA_DIR / "processed"
-CLEAN_DATA_DIR = DATA_DIR / "clean" # preprocessed file
+RAW_DATA_DIR = DATA_DIR / "01_raw"
+VALIDATED_DATA_DIR = DATA_DIR / "02_validated"
+PROCESSED_DATA_DIR = DATA_DIR / "03_processed"
+FEATURED_DATA_DIR = DATA_DIR / "04_featured"
+#FINAL_DATA_DIR = DATA_DIR / "05_final"
 
 # ----------------------------------------
 # Notebook Directory
 # ----------------------------------------
 NOTEBOOKS_DIR = PROJECT_ROOT / "notebooks"
+
+# ----------------------------------------
+# Logs Directories
+# ----------------------------------------
+LOGS_DIR = PROJECT_ROOT / "logs"
+
+LOGS_VALIDATION_DIR = LOGS_DIR / "data"
+LOGS_INFERENCE_DIR = LOGS_DIR / "inference"
+LOGS_SYSTEM_DIR = LOGS_DIR / "system"
+LOGS_TRAINING_DIR = LOGS_DIR / "training"
 
 # ----------------------------------------
 # Model Output Directories
@@ -30,29 +42,35 @@ MODELS_DIR = PROJECT_ROOT / "models"
 REPORTS_DIR = PROJECT_ROOT / "reports"
 
 # ----------------------------------------
-# Convenience Functions
+# Convenience helper functions
 # ----------------------------------------
-def raw(path: str):
-    """Return full path inside data/raw/"""
-    return RAW_DATA_DIR / path
 
+def raw(filename: str):
+    return RAW_DATA_DIR / filename
 
-def processed(path: str):
-    """Return full path inside data/processed/"""
-    return PROCESSED_DATA_DIR / path
+def validated(filename: str):
+    return VALIDATED_DATA_DIR / filename
 
+def processed(filename: str):
+    return PROCESSED_DATA_DIR / filename
 
-def clean(path: str):
-    """Return full path inside data/clean/"""
-    return CLEAN_DATA_DIR / path
+def featured(filename: str):
+    return FEATURED_DATA_DIR / filename
 
+#def final(filename: str):
+#   return FINAL_DATA_DIR / filename
 
-def model(path: str):
-    """Return full path inside models/"""
-    return MODELS_DIR / path
+def logs(subdir: str, filename: str):
+    mapping = {
+        "data": LOGS_VALIDATION_DIR,
+        "inference": LOGS_INFERENCE_DIR,
+        "system": LOGS_SYSTEM_DIR,
+        "training": LOGS_TRAINING_DIR,
+    }
+    return mapping.get(subdir, LOGS_DIR) / filename
 
+def model(filename: str):
+    return MODELS_DIR / filename
 
-def report(path: str):
-    """Return full path inside reports/"""
-    return REPORTS_DIR / path
-
+def report(filename: str):
+    return REPORTS_DIR / filename

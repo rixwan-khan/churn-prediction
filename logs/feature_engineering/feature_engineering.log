@@ -1,0 +1,9 @@
+2025-12-11 02:30:48 - feature_engineering:feature_engineering.log - INFO - Loaded cleaned dataset with 7043 rows and 21 columns
+2025-12-11 03:09:46 - feature_engineering:feature_engineering.log - INFO - Loaded cleaned dataset with 7043 rows and 21 columns
+2025-12-11 03:09:46 - feature_engineering:feature_engineering.log - INFO - Feature engineering completed with 37 columns
+2025-12-11 03:09:46 - feature_engineering:feature_engineering.log - INFO - Zero-variance features removed: 36 columns left
+2025-12-11 03:12:29 - feature_engineering:feature_engineering.log - INFO - Loaded cleaned dataset with 7043 rows and 21 columns
+2025-12-11 03:12:29 - feature_engineering:feature_engineering.log - INFO - Feature engineering completed with 37 columns
+2025-12-11 03:12:29 - feature_engineering:feature_engineering.log - INFO - Zero-variance features removed: 36 columns left
+2025-12-11 03:12:29 - feature_engineering:feature_engineering.log - INFO - Highly correlated features removed: 31 columns left
+2025-12-11 03:12:29 - feature_engineering:feature_engineering.log - INFO - Saved featured dataset at C:\Users\Rix\Projects\churn-prediction\data\04_featured\featured_telco_churn.csv

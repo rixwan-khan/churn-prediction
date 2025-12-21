@@ -1,47 +1,32 @@
+# src/utils/logger.py
+
 import logging
 from pathlib import Path
+from .paths import LOGS_DIR
 
-# ------------------------------
-# Logs folder
-# ------------------------------
-LOG_DIR = Path(__file__).resolve().parents[2] / "logs"
-LOG_DIR.mkdir(parents=True, exist_ok=True)  # folder agar na ho to create ho jaye
+def get_logger(log_filename: str, log_subdir: str):
+    base_dir = LOGS_DIR / log_subdir
+    base_dir.mkdir(parents=True, exist_ok=True)
 
-def get_logger(log_filename: str):
-    """
-    Returns a reusable logger for any module.
-    
-    Parameters:
-    - log_filename: Name of the log file (example: "preprocessing.log")
-    
-    Returns:
-    - logger object
-    """
-
-    # Full path to log file
-    log_path = LOG_DIR / log_filename
-    
-    # Create logger with module/file name
-    logger = logging.getLogger(log_filename)
+    logger_name = f"{log_subdir}:{log_filename}"
+    logger = logging.getLogger(logger_name)
     logger.setLevel(logging.INFO)
 
-    # Prevent duplicate handlers if logger is called multiple times
     if not logger.handlers:
-        # File handler
-        file_handler = logging.FileHandler(log_path)
-        # Console handler (optional, uncomment if needed)
-        # console_handler = logging.StreamHandler()
-        
-        # Standardized format
-        formatter = logging.Formatter(
-            "%(asctime)s | %(levelname)s | %(name)s | %(message)s",
-            datefmt="%Y-%m-%d %H:%M:%S"
-        )
-        file_handler.setFormatter(formatter)
-        # console_handler.setFormatter(formatter)
-        
-        # Add handlers
-        logger.addHandler(file_handler)
-        # logger.addHandler(console_handler)
+        file_path = base_dir / log_filename
+        fh = logging.FileHandler(file_path, encoding="utf-8")
+        fh.setLevel(logging.INFO)
+        fh.setFormatter(logging.Formatter(
+            "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+            "%Y-%m-%d %H:%M:%S"
+        ))
+        logger.addHandler(fh)
+
+        ch = logging.StreamHandler()
+        ch.setLevel(logging.INFO)
+        ch.setFormatter(logging.Formatter("%(levelname)s - %(message)s"))
+        logger.addHandler(ch)
+
+        logger.propagate = False
 
     return logger
