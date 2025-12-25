@@ -1,0 +1,7 @@
+2025-12-25 02:58:02 - training:hyperparam_tuning_lr.log - INFO - Loading dataset for Logistic Regression tuning
+2025-12-25 02:58:02 - training:hyperparam_tuning_lr.log - INFO - Starting hyperparameter tunning for logistic Regression.
+2025-12-25 03:02:09 - training:hyperparam_tuning_lr.log - INFO - Loading dataset for Logistic Regression tuning
+2025-12-25 03:02:09 - training:hyperparam_tuning_lr.log - INFO - Starting hyperparameter tunning for logistic Regression.
+2025-12-25 03:02:17 - training:hyperparam_tuning_lr.log - INFO - Best params for Logistic Regression: {'clf__C': np.float64(1.4049386065204184), 'clf__solver': 'liblinear'}
+2025-12-25 03:02:17 - training:hyperparam_tuning_lr.log - INFO - Best PR-AUC for Logistic Regression: 0.6553063533309126
+2025-12-25 03:02:17 - training:hyperparam_tuning_lr.log - INFO - Logistic Regression hyperparameter tuning completed successfully.

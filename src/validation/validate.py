@@ -14,12 +14,17 @@ warnings.simplefilter(action="ignore", category=FutureWarning)
 
 
 def validate_data(df, schema):
+
+    # Ensure directories exist for saving validated and failed data
     os.makedirs(VALIDATED_DATA_PATH.parent, exist_ok=True)
     os.makedirs(FAILED_ROWS_PATH.parent, exist_ok=True)
 
     try:
+        # Validate dataframe against schema (lazy=True allows reporting all errors at once)
         validated_df = schema.validate(df, lazy=True)
         print("✓ All rows passed validation.")
+
+        # Save all rows as validated and empty dataframe for failed rows
         save_csv(validated_df, VALIDATED_DATA_PATH)
         save_csv(pd.DataFrame(), FAILED_ROWS_PATH)
         return validated_df
@@ -27,10 +32,16 @@ def validate_data(df, schema):
     except SchemaErrors as err:
         print("⚠ Validation errors found!")
 
+        # Extract details of failed rows
         error_df = err.failure_cases
+
+        # Select rows that failed validation
         failed_rows = df.iloc[error_df["index"].unique()]
+        
+        # Select rows that passed validation
         valid_rows = df.drop(error_df["index"].unique())
 
+        # Save valid and failed rows to separate files
         save_csv(valid_rows, VALIDATED_DATA_PATH)
         save_csv(failed_rows, FAILED_ROWS_PATH)
 
@@ -41,6 +52,8 @@ def validate_data(df, schema):
 
 
 if __name__ == "__main__":
+    
+    # Load raw CSV data and run validation
     print(f"Loading: {RAW_DATA_PATH}")
     df = load_csv(RAW_DATA_PATH)
     validate_data(df, ChurnSchema)

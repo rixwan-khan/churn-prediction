@@ -1,0 +1,5 @@
+2025-12-25 03:14:57 - training:hyperparam_tuning_xgb.log - INFO - Loading dataset for XGBoost tuning
+2025-12-25 03:14:57 - training:hyperparam_tuning_xgb.log - INFO - Starting hyperparameter tuning for XGBoost
+2025-12-25 03:15:29 - training:hyperparam_tuning_xgb.log - INFO - Best params for XGBoost: {'clf__colsample_bytree': np.float64(0.9692763545078751), 'clf__learning_rate': np.float64(0.010233629752304298), 'clf__max_depth': 6, 'clf__n_estimators': 376, 'clf__scale_pos_weight': np.float64(2.7683253076511503), 'clf__subsample': np.float64(0.8087407548138583)}
+2025-12-25 03:15:29 - training:hyperparam_tuning_xgb.log - INFO - Best PR-AUC for XGBoost: 0.65812657526362
+2025-12-25 03:15:29 - training:hyperparam_tuning_xgb.log - INFO - XGBoost hyperparameter tuning completed successfuly
