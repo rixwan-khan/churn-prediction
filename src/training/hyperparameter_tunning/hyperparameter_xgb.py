@@ -9,7 +9,7 @@ from xgboost import XGBClassifier
 from scipy.stats import uniform, randint
 
 from src.utils.logger import get_logger
-from src.utils.paths import DATA_DIR
+from src.data.splitted_dataset import load_splitted_data
 
 
 # -------- Logger setup
@@ -18,17 +18,13 @@ logger = get_logger(
     log_subdir='training'
 )
 
-# -------- Dataset path
-FEATURED_DATA_PATH = DATA_DIR / '04_featured' / 'featured_telco_churn.csv'
-
-
 # ------- Tunning function for XGBoost Classifier
-def tune_xgboost(X: pd.DataFrame,y: pd.Series, cv_splits: int = 5, n_iter: int =20):
+def tune_xgboost(X_train: pd.DataFrame,y_train: pd.Series, cv_splits: int = 5, n_iter: int =20):
     logger.info('Starting hyperparameter tuning for XGBoost')
 
     # -------- Handle Class imbalance
     #  - scale_pos_weight tell XGBoost to penalize minority class errors more.
-    scale_pos_weight = (y==0).sum() / (y==1).sum()
+    scale_pos_weight = (y_train==0).sum() / (y_train==1).sum()
 
     # -------- Model Pipline
     pipline = Pipeline(
@@ -77,7 +73,7 @@ def tune_xgboost(X: pd.DataFrame,y: pd.Series, cv_splits: int = 5, n_iter: int =
     )
 
     # -------- Execute search
-    search.fit(X, y)
+    search.fit(X_train, y_train)
 
     # -------- Logging best results
     logger.info(f'Best params for XGBoost: {search.best_params_}')
@@ -90,12 +86,10 @@ def tune_xgboost(X: pd.DataFrame,y: pd.Series, cv_splits: int = 5, n_iter: int =
 def main():
     
     logger.info('Loading dataset for XGBoost tuning')
+    # Load train/val/test splits
+    X_train, X_val, X_test, y_train, y_val, y_test = load_splitted_data()
 
-    df = pd.read_csv(FEATURED_DATA_PATH)
-    X = df.drop(columns=['Churn'])
-    y = df['Churn']
-
-    tune_xgboost(X,y)
+    best_xgb_model = tune_xgboost(X_train,y_train)
 
     logger.info('XGBoost hyperparameter tuning completed successfuly')
 

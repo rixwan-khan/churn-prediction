@@ -1,72 +1,90 @@
-# src/data/splitted_dataset.py
+# src/data/split_data.py
+
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from pathlib import Path
-import logging
 
-# ===== Logger setup =====
-LOG_DIR = Path("logs/data")
-LOG_DIR.mkdir(parents=True, exist_ok=True)
-logging.basicConfig(
-    filename=LOG_DIR / "splitted_dataset.log",
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
+from src.utils.logger import get_logger
+from src.utils.paths import DATA_DIR
+
+# -------- Logger setup
+logger = get_logger(
+    log_filename='data_split.log',
+    log_subdir='data'
 )
-logger = logging.getLogger(__name__)
 
-# ===== Default dataset path =====
-FEATURED_DATA_PATH = Path("data/featured/featured_telco_churn.csv")
+# -------- Dataset path
+FEATURED_DATA_PATH = DATA_DIR / '04_featured' / 'featured_telco_churn.csv'
+
 
 def load_splitted_data(
-    data_path: Path = FEATURED_DATA_PATH,
-    target: str = 'Churn',
-    test_size_val: float = 0.15,
-    random_state: int = 42cd
+        data_path: Path = FEATURED_DATA_PATH,
+        target: str = 'Churn',
+        test_size_val: float = 0.15,
+        random_state: int = 42
 ):
     """
-    Load featured dataset and return consistent train/val/test splits.
+    Summary:
+        Loading featured dataset and creating consistent split of train, validaiton and test.
 
     Args:
-        data_path (Path): CSV file path
-        target (str): Target column name
-        test_size_val (float): Fraction for validation/test (default 0.15 each)
-        random_state (int): Random seed for reproducibility
-
-    Returns:
-        X_train, X_val, X_test, y_train, y_val, y_test
+        data_path (Path, optional): _description_. Defaults to FEATURED_DATA_PATH.
+        target (str, optional): Target column = 'Churn'.
+        test_size_val (float, optional): Fraction for validation and test set each.
+        random_state (int, optional): Seed for reproducibility.
     """
-    if not data_path.exists():
-        logger.error(f"Dataset not found at {data_path}")
-        raise FileNotFoundError(f"Dataset not found at {data_path}")
+    logger.info('Starting dataset splitting process')
 
+    if not data_path.exists():
+        logger.error(f'Dataset not found at {data_path}')
+        raise FileNotFoundError(f"Dataset not found at {data_path}")
+    
     df = pd.read_csv(data_path)
-    logger.info(f"Loaded dataset {data_path} with shape: {df.shape}")
+    logger.info(f'Dataset loaded from {data_path} | Shape: {df.shape}')
 
     if target not in df.columns:
-        logger.error(f"Target column '{target}' not found in dataset")
+        logger.error(f"Target column'{target}' not found")
         raise ValueError(f"Target column '{target}' not found in dataset")
 
+    
+
+    # -------- Separating features and target
     X = df.drop(columns=[target])
     y = df[target]
 
-    # --- First split: 70% train, 30% temp
+    # -------- First Split:  70% Train, 30% Temp
     X_train, X_temp, y_train, y_temp = train_test_split(
-        X, y, test_size=2*test_size_val, stratify=y, random_state=random_state
+        X,
+        y,
+        test_size=2*test_size_val,
+        stratify=y,
+        random_state=random_state
     )
 
-    # --- Second split: 50% validation, 50% test from temp
+    # -------- Second Split: Validation 15%, Test 15%
     X_val, X_test, y_val, y_test = train_test_split(
-        X_temp, y_temp, test_size=0.5, stratify=y_temp, random_state=random_state
+        X_temp,
+        y_temp,
+        test_size=0.5,
+        stratify=y_temp,
+        random_state=random_state
     )
 
     logger.info(
-        f"Split completed | Train: {X_train.shape}, Val: {X_val.shape}, Test: {X_test.shape}"
+        f"Split completed |"
+        f"Train:{X_train.shape},"
+        f"Val:{X_val.shape},"
+        f"Test: {X_test.shape}"
     )
 
     return X_train, X_val, X_test, y_train, y_val, y_test
 
-
-# ===== Optional quick test =====
-if __name__ == "__main__":
+# -------- Entry point
+def main():
     X_train, X_val, X_test, y_train, y_val, y_test = load_splitted_data()
-    print(f"Train shape: {X_train.shape}, Val shape: {X_val.shape}, Test shape: {X_test.shape}")
+
+    logger.info('Data splitting moduels executed successfully')
+
+
+if __name__ == '__main__':
+    main()

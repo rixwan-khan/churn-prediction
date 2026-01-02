@@ -8,7 +8,7 @@ from sklearn.linear_model import LogisticRegression
 from scipy.stats import uniform
 
 from src.utils.logger import get_logger
-from src.utils.paths import DATA_DIR
+from src.data.splitted_dataset import load_splitted_data
 
 
 # ----- logger setup
@@ -17,12 +17,8 @@ logger = get_logger(
     log_subdir= 'training'
 )
 
-# ---- Dataset path
-FEATURE_DATA_PATH = DATA_DIR / '04_featured' / 'featured_telco_churn.csv'
-
-
 # ---- Tunning function for logistic regression -----
-def tune_logistic_regression(X: pd.DataFrame, y:pd.Series, cv_splits:int=5, n_iter: int=20):
+def tune_logistic_regression(X_train: pd.DataFrame, y_train:pd.Series, cv_splits:int=5, n_iter: int=20):
     """
     Summary: Perform cross_validated hyperparameter tunning for logistic regression.
 
@@ -74,7 +70,7 @@ def tune_logistic_regression(X: pd.DataFrame, y:pd.Series, cv_splits:int=5, n_it
     )
 
     # ----- Executes CV-based hyperparameter search
-    search.fit(X,y)
+    search.fit(X_train,y_train)
 
     # ----- Logging best configuration and performance
     logger.info(f'Best params for Logistic Regression: {search.best_params_}')
@@ -90,13 +86,11 @@ def main():
 
     logger.info('Loading dataset for Logistic Regression tuning')
 
-    df = pd.read_csv(FEATURE_DATA_PATH)
+    # Load train/val/test splits
+    X_train, X_val, X_test, y_train, y_val, y_test = load_splitted_data()
 
-    # Separate feature and target
-    X = df.drop(columns=['Churn'])
-    y = df['Churn']
-
-    tune_logistic_regression(X,y)
+    # Tune using train data only
+    best_lr_model = tune_logistic_regression(X_train,y_train)
 
     logger.info('Logistic Regression hyperparameter tuning completed successfully.')
 

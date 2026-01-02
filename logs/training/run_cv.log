@@ -31,3 +31,13 @@
 2025-12-19 03:55:35 - training:run_cv.log - INFO - Running CV for XGBoost
 2025-12-19 03:55:37 - training:run_cv.log - INFO - XGBoost | PR-AUC: 0.6340 ± 0.0254
 2025-12-19 03:55:37 - training:run_cv.log - INFO - Cross-Validation experiments completed successfully
+2025-12-26 04:49:36 - training:run_cv.log - INFO - Starting Cross_Validation experiments...
+2025-12-26 04:49:36 - training:run_cv.log - INFO - Loaded pre-split dataset.
+2025-12-26 04:49:36 - training:run_cv.log - INFO - Combined Train + Validation for CV: (5986, 31), (5986,)
+2025-12-26 04:49:36 - training:run_cv.log - INFO - Running CV for Logistic Regression with feature scaling
+2025-12-26 04:49:36 - training:run_cv.log - INFO - LogisticRegression | PR-AUC: 0.6565 ± 0.0216
+2025-12-26 04:49:36 - training:run_cv.log - INFO - Running CV for Random Forest
+2025-12-26 04:49:44 - training:run_cv.log - INFO - RandomForest  | PR-AUC: 0.6279 ± 0.0160
+2025-12-26 04:49:44 - training:run_cv.log - INFO - Running CV for XGBoost
+2025-12-26 04:49:46 - training:run_cv.log - INFO - XGBoost | PR-AUC: 0.6322 ± 0.0143
+2025-12-26 04:49:46 - training:run_cv.log - INFO - Cross-Validation experiments completed successfully
