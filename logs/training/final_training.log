@@ -1,0 +1,11 @@
+2026-01-03 04:11:17 - training:final_training.log - INFO - Final Stage Training Started
+2026-01-03 04:11:17 - training:final_training.log - INFO - Final training data shape: X=(5986, 31), y=(5986,)
+2026-01-03 04:11:17 - training:final_training.log - INFO - Loading best Logistic Regression model from hyperparameter tuning step
+2026-01-03 04:15:10 - training:final_training.log - INFO - Final Stage Training Started
+2026-01-03 04:15:10 - training:final_training.log - INFO - Final training data shape: X=(5986, 31), y=(5986,)
+2026-01-03 04:15:10 - training:final_training.log - INFO - Loading best Logistic Regression model from hyperparameter tuning step
+2026-01-03 04:15:10 - training:final_training.log - INFO - Training final Logistic Regression model
+2026-01-03 04:15:10 - training:final_training.log - INFO - Final Logistic Regression model saved
+2026-01-03 04:15:10 - training:final_training.log - INFO - Loading best XGBoost model from hyperparameter tuning step
+2026-01-03 04:15:10 - training:final_training.log - INFO - Training final xgboost model
+2026-01-03 04:15:12 - training:final_training.log - INFO - Final xgboost model saved

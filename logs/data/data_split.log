@@ -22,3 +22,24 @@
 2025-12-26 05:05:51 - data:data_split.log - INFO - Starting dataset splitting process
 2025-12-26 05:05:51 - data:data_split.log - INFO - Dataset loaded from C:\Users\Rix\Projects\churn-prediction\data\04_featured\featured_telco_churn.csv | Shape: (7043, 32)
 2025-12-26 05:05:51 - data:data_split.log - INFO - Split completed |Train:(4930, 31),Val:(1056, 31),Test: (1057, 31)
+2026-01-03 03:14:32 - data:data_split.log - INFO - Starting dataset splitting process
+2026-01-03 03:14:32 - data:data_split.log - INFO - Dataset loaded from C:\Users\Rix\Projects\churn-prediction\data\04_featured\featured_telco_churn.csv | Shape: (7043, 32)
+2026-01-03 03:14:32 - data:data_split.log - INFO - Split completed |Train:(4930, 31),Val:(1056, 31),Test: (1057, 31)
+2026-01-03 03:22:41 - data:data_split.log - INFO - Starting dataset splitting process
+2026-01-03 03:22:41 - data:data_split.log - INFO - Dataset loaded from C:\Users\Rix\Projects\churn-prediction\data\04_featured\featured_telco_churn.csv | Shape: (7043, 32)
+2026-01-03 03:22:41 - data:data_split.log - INFO - Split completed |Train:(4930, 31),Val:(1056, 31),Test: (1057, 31)
+2026-01-03 03:25:29 - data:data_split.log - INFO - Starting dataset splitting process
+2026-01-03 03:25:29 - data:data_split.log - INFO - Dataset loaded from C:\Users\Rix\Projects\churn-prediction\data\04_featured\featured_telco_churn.csv | Shape: (7043, 32)
+2026-01-03 03:25:29 - data:data_split.log - INFO - Split completed |Train:(4930, 31),Val:(1056, 31),Test: (1057, 31)
+2026-01-03 03:33:36 - data:data_split.log - INFO - Starting dataset splitting process
+2026-01-03 03:33:36 - data:data_split.log - INFO - Dataset loaded from C:\Users\Rix\Projects\churn-prediction\data\04_featured\featured_telco_churn.csv | Shape: (7043, 32)
+2026-01-03 03:33:36 - data:data_split.log - INFO - Split completed |Train:(4930, 31),Val:(1056, 31),Test: (1057, 31)
+2026-01-03 03:40:08 - data:data_split.log - INFO - Starting dataset splitting process
+2026-01-03 03:40:08 - data:data_split.log - INFO - Dataset loaded from C:\Users\Rix\Projects\churn-prediction\data\04_featured\featured_telco_churn.csv | Shape: (7043, 32)
+2026-01-03 03:40:08 - data:data_split.log - INFO - Split completed |Train:(4930, 31),Val:(1056, 31),Test: (1057, 31)
+2026-01-03 04:11:17 - data:data_split.log - INFO - Starting dataset splitting process
+2026-01-03 04:11:17 - data:data_split.log - INFO - Dataset loaded from C:\Users\Rix\Projects\churn-prediction\data\04_featured\featured_telco_churn.csv | Shape: (7043, 32)
+2026-01-03 04:11:17 - data:data_split.log - INFO - Split completed |Train:(4930, 31),Val:(1056, 31),Test: (1057, 31)
+2026-01-03 04:15:10 - data:data_split.log - INFO - Starting dataset splitting process
+2026-01-03 04:15:10 - data:data_split.log - INFO - Dataset loaded from C:\Users\Rix\Projects\churn-prediction\data\04_featured\featured_telco_churn.csv | Shape: (7043, 32)
+2026-01-03 04:15:10 - data:data_split.log - INFO - Split completed |Train:(4930, 31),Val:(1056, 31),Test: (1057, 31)

@@ -10,6 +10,7 @@ from scipy.stats import uniform, randint
 
 from src.utils.logger import get_logger
 from src.data.splitted_dataset import load_splitted_data
+from src.utils.model_io import save_model
 
 
 # -------- Logger setup
@@ -77,7 +78,11 @@ def tune_xgboost(X_train: pd.DataFrame,y_train: pd.Series, cv_splits: int = 5, n
 
     # -------- Logging best results
     logger.info(f'Best params for XGBoost: {search.best_params_}')
-    logger.info(f'Best PR-AUC for XGBoost: {search.best_score_}')
+    logger.info(f'Best PR-AUC for XGBoost: {search.best_score_:.4f}')
+
+    # SAVE BEST MODEL (Stage-3 artifact)
+    save_model(search.best_estimator_, 'best_xgboost')
+    logger.info('Best XGBoost model saved')
 
     return search.best_estimator_
 

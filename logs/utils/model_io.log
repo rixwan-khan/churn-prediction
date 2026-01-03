@@ -1,0 +1,3 @@
+2026-01-03 04:11:17 - utils:model_io.log - ERROR - Model file not found: C:\Users\Rix\Projects\churn-prediction\models\best_logistic_regression.pkl
+2026-01-03 04:15:10 - utils:model_io.log - INFO - Loaded model 'best_LogisticRegression' from: C:\Users\Rix\Projects\churn-prediction\models\best_LogisticRegression.pkl
+2026-01-03 04:15:10 - utils:model_io.log - INFO - Loaded model 'best_xgboost' from: C:\Users\Rix\Projects\churn-prediction\models\best_xgboost.pkl

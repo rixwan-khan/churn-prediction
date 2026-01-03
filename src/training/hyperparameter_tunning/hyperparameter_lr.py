@@ -1,5 +1,15 @@
 # src/training/hyperparameter_tunning/hyperparameter_lr.py
 
+"""
+HYPERPARAMETER TUNING FOR LOGISTIC REGRESSION
+--------------------------------------------
+Purpose:
+- Perform CV-based hyperparameter search on Logistic Regression
+- Scaling inside pipeline prevents data leakage
+- Uses Stratified CV to maintain class distribution
+- Returns best estimator ready for final training
+"""
+
 import pandas as pd
 from sklearn.model_selection import RandomizedSearchCV, StratifiedKFold
 from sklearn.pipeline import Pipeline
@@ -9,6 +19,9 @@ from scipy.stats import uniform
 
 from src.utils.logger import get_logger
 from src.data.splitted_dataset import load_splitted_data
+from src.utils.model_io import save_model
+from src.utils.paths import REPORTS_DIR
+
 
 
 # ----- logger setup
@@ -74,7 +87,11 @@ def tune_logistic_regression(X_train: pd.DataFrame, y_train:pd.Series, cv_splits
 
     # ----- Logging best configuration and performance
     logger.info(f'Best params for Logistic Regression: {search.best_params_}')
-    logger.info(f'Best PR-AUC for Logistic Regression: {search.best_score_}')
+    logger.info(f'Best PR-AUC for Logistic Regression: {search.best_score_:.4f}')
+
+    # Saving Best Model
+    save_model(search.best_estimator_, 'best_LogisticRegression')
+    logger.info('Best LogisticRegression model saved')
 
     return search.best_estimator_
 

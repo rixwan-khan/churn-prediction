@@ -38,3 +38,11 @@
 2025-12-26 04:46:15 - training:model_training.log - INFO - LogisticRegression: results: {'ROC_AUC': 0.8452782771398173, 'PR_AUC': 0.6603639821533818, 'F1': 0.6342943854324734, 'ConfusionMatrix': [[607, 169], [72, 209]], 'Threshold': np.float64(0.5521616114383809)}
 2025-12-26 04:46:15 - training:model_training.log - INFO - RandomForest: results: {'ROC_AUC': 0.8182095425028434, 'PR_AUC': 0.6109497385915386, 'F1': 0.60062893081761, 'ConfusionMatrix': [[612, 164], [90, 191]], 'Threshold': np.float64(0.38666666666666666)}
 2025-12-26 04:46:15 - training:model_training.log - INFO - XGBoost: results: {'ROC_AUC': 0.82092444142789, 'PR_AUC': 0.6349068195786176, 'F1': 0.5994397759103641, 'ConfusionMatrix': [[557, 219], [67, 214]], 'Threshold': np.float32(0.38030803)}
+2026-01-03 03:14:32 - training:model_training.log - INFO - Starting model training pipeline
+2026-01-03 03:22:41 - training:model_training.log - INFO - Starting model training pipeline
+2026-01-03 03:22:41 - training:model_training.log - INFO - Baseline Logistic Regression completed
+2026-01-03 03:22:48 - training:model_training.log - INFO - Baseline Random Forest completed
+2026-01-03 03:22:49 - training:model_training.log - INFO - Baseline XGBoost completed
+2026-01-03 03:22:49 - training:model_training.log - INFO - LogisticRegression: results: {'ROC_AUC': 0.8450179491899853, 'PR_AUC': 0.6337431382354428}
+2026-01-03 03:22:49 - training:model_training.log - INFO - random_forest: results: {'ROC_AUC': 0.8231521539027982, 'PR_AUC': 0.5885058849527224}
+2026-01-03 03:22:49 - training:model_training.log - INFO - xgboost: results: {'ROC_AUC': 0.8261759020618558, 'PR_AUC': 0.6038139429496039}

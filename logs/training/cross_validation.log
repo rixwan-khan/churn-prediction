@@ -1,0 +1,36 @@
+2026-01-03 03:25:29 - training:cross_validation.log - INFO - Starting CV | folds=5 | metric=average_precision_score
+2026-01-03 03:25:29 - training:cross_validation.log - INFO - Fold 1 started
+2026-01-03 03:25:29 - training:cross_validation.log - INFO - Fold 1 score: 0.6764
+2026-01-03 03:25:29 - training:cross_validation.log - INFO - Fold 2 started
+2026-01-03 03:25:29 - training:cross_validation.log - INFO - Fold 2 score: 0.6353
+2026-01-03 03:25:29 - training:cross_validation.log - INFO - Fold 3 started
+2026-01-03 03:25:29 - training:cross_validation.log - INFO - Fold 3 score: 0.6575
+2026-01-03 03:25:29 - training:cross_validation.log - INFO - Fold 4 started
+2026-01-03 03:25:30 - training:cross_validation.log - INFO - Fold 4 score: 0.6837
+2026-01-03 03:25:30 - training:cross_validation.log - INFO - Fold 5 started
+2026-01-03 03:25:30 - training:cross_validation.log - INFO - Fold 5 score: 0.6294
+2026-01-03 03:25:30 - training:cross_validation.log - INFO - CV completed | mean=0.6564 | std=0.0215
+2026-01-03 03:25:30 - training:cross_validation.log - INFO - Starting CV | folds=5 | metric=average_precision_score
+2026-01-03 03:25:30 - training:cross_validation.log - INFO - Fold 1 started
+2026-01-03 03:25:31 - training:cross_validation.log - INFO - Fold 1 score: 0.6247
+2026-01-03 03:25:31 - training:cross_validation.log - INFO - Fold 2 started
+2026-01-03 03:25:32 - training:cross_validation.log - INFO - Fold 2 score: 0.6035
+2026-01-03 03:25:32 - training:cross_validation.log - INFO - Fold 3 started
+2026-01-03 03:25:34 - training:cross_validation.log - INFO - Fold 3 score: 0.6355
+2026-01-03 03:25:34 - training:cross_validation.log - INFO - Fold 4 started
+2026-01-03 03:25:35 - training:cross_validation.log - INFO - Fold 4 score: 0.6525
+2026-01-03 03:25:35 - training:cross_validation.log - INFO - Fold 5 started
+2026-01-03 03:25:36 - training:cross_validation.log - INFO - Fold 5 score: 0.6236
+2026-01-03 03:25:36 - training:cross_validation.log - INFO - CV completed | mean=0.6279 | std=0.0160
+2026-01-03 03:25:36 - training:cross_validation.log - INFO - Starting CV | folds=5 | metric=average_precision_score
+2026-01-03 03:25:36 - training:cross_validation.log - INFO - Fold 1 started
+2026-01-03 03:25:37 - training:cross_validation.log - INFO - Fold 1 score: 0.6354
+2026-01-03 03:25:37 - training:cross_validation.log - INFO - Fold 2 started
+2026-01-03 03:25:37 - training:cross_validation.log - INFO - Fold 2 score: 0.6156
+2026-01-03 03:25:37 - training:cross_validation.log - INFO - Fold 3 started
+2026-01-03 03:25:38 - training:cross_validation.log - INFO - Fold 3 score: 0.6303
+2026-01-03 03:25:38 - training:cross_validation.log - INFO - Fold 4 started
+2026-01-03 03:25:38 - training:cross_validation.log - INFO - Fold 4 score: 0.6574
+2026-01-03 03:25:38 - training:cross_validation.log - INFO - Fold 5 started
+2026-01-03 03:25:39 - training:cross_validation.log - INFO - Fold 5 score: 0.6221
+2026-01-03 03:25:39 - training:cross_validation.log - INFO - CV completed | mean=0.6322 | std=0.0143

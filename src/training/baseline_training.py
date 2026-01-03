@@ -1,4 +1,4 @@
-#src/training/baseline_training.py
+
 
 """
 BASELINE MODEL TRAINING
@@ -117,8 +117,8 @@ def evaluate(model, X_val, y_val):
 
     # Calculate evaluation metrics
     metrics = {
-        'ROC_AUC': roc_auc_score(y, y_prob),
-        'PR_AUC': average_precision_score(y,y_prob),
+        'ROC_AUC': roc_auc_score(y_val, y_prob),
+        'PR_AUC': average_precision_score(y_val, y_prob),
     }
     return metrics
 
