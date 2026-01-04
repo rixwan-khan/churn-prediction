@@ -43,3 +43,9 @@
 2026-01-03 04:15:10 - data:data_split.log - INFO - Starting dataset splitting process
 2026-01-03 04:15:10 - data:data_split.log - INFO - Dataset loaded from C:\Users\Rix\Projects\churn-prediction\data\04_featured\featured_telco_churn.csv | Shape: (7043, 32)
 2026-01-03 04:15:10 - data:data_split.log - INFO - Split completed |Train:(4930, 31),Val:(1056, 31),Test: (1057, 31)
+2026-01-04 04:11:13 - data:data_split.log - INFO - Starting dataset splitting process
+2026-01-04 04:11:13 - data:data_split.log - INFO - Dataset loaded from C:\Users\Rix\Projects\churn-prediction\data\04_featured\featured_telco_churn.csv | Shape: (7043, 32)
+2026-01-04 04:11:13 - data:data_split.log - INFO - Split completed |Train:(4930, 31),Val:(1056, 31),Test: (1057, 31)
+2026-01-04 04:13:35 - data:data_split.log - INFO - Starting dataset splitting process
+2026-01-04 04:13:35 - data:data_split.log - INFO - Dataset loaded from C:\Users\Rix\Projects\churn-prediction\data\04_featured\featured_telco_churn.csv | Shape: (7043, 32)
+2026-01-04 04:13:35 - data:data_split.log - INFO - Split completed |Train:(4930, 31),Val:(1056, 31),Test: (1057, 31)

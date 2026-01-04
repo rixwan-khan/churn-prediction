@@ -1,0 +1,14 @@
+2026-01-04 04:11:13 - evaluation:threshold_tuning.log - INFO - Threshold Tuning & Business Decision Pipline Started
+2026-01-04 04:11:13 - evaluation:threshold_tuning.log - INFO - Loaded train / Val / test datasets
+2026-01-04 04:11:14 - evaluation:threshold_tuning.log - INFO - Optimizing threshold for LogisticRegression
+2026-01-04 04:11:14 - evaluation:threshold_tuning.log - INFO - LogisticRegression Validation PR-AUC: 0.6355
+2026-01-04 04:11:14 - evaluation:threshold_tuning.log - INFO - Starting threshold optimization
+2026-01-04 04:11:15 - evaluation:threshold_tuning.log - INFO - Best F1 threshold: 0.675 | F1-scores: 0.6356
+2026-01-04 04:11:15 - evaluation:threshold_tuning.log - INFO - Best business threshold; 0.379 | Expected cost: -35000.0
+2026-01-04 04:11:15 - evaluation:threshold_tuning.log - INFO - LogisticRegression threshold analysis saved at: C:\Users\Rix\Projects\churn-prediction\reports\LogisticRegression_threshold_analysis.csv
+2026-01-04 04:11:15 - evaluation:threshold_tuning.log - INFO - Optimizing threshold for XGBoost
+2026-01-04 04:11:15 - evaluation:threshold_tuning.log - INFO - XGBoost Validation PR-AUC: 0.7526
+2026-01-04 04:11:15 - evaluation:threshold_tuning.log - INFO - Starting threshold optimization
+2026-01-04 04:11:16 - evaluation:threshold_tuning.log - INFO - Best F1 threshold: 0.626 | F1-scores: 0.7190
+2026-01-04 04:11:16 - evaluation:threshold_tuning.log - INFO - Best business threshold; 0.453 | Expected cost: -28600.0
+2026-01-04 04:11:16 - evaluation:threshold_tuning.log - INFO - XGBoost threshold analysis saved at: C:\Users\Rix\Projects\churn-prediction\reports\XGBoost_threshold_analysis.csv
